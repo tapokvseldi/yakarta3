@@ -5,7 +5,7 @@ body{
     flex-direction: column;
     align-content: stretch;
     margin: 0;
-    background-image: url(../photo/08144724e14944914ca4b0b3d2f851d00.jpg);
+    background-image: url(../yakarta3/photo/08144724e14944914ca4b0b3d2f851d00.jpg);
     background-size: cover;
 }
 header{
@@ -70,22 +70,22 @@ h2{
     size: 150%;
 }
 .one{
-    background-image: linear-gradient(to bottom, rgba(195, 219, 255, 0.048) 0%, rgb(129, 174, 243) 75%), url(../photo/d09e94bba265ac920ea841c47f0c08e5.jpg);
+    background-image: linear-gradient(to bottom, rgba(195, 219, 255, 0.048) 0%, rgb(129, 174, 243) 75%), url(../yakarta3/photo/d09e94bba265ac920ea841c47f0c08e5.jpg);
     background-size: cover;
 }
 .two{
-    background-image: linear-gradient(to bottom, rgba(195, 219, 255, 0.021) 0%, rgb(129, 174, 243) 75%), url(../photo/экопоколение_1667х1050_сайт_1.png);
+    background-image: linear-gradient(to bottom, rgba(195, 219, 255, 0.021) 0%, rgb(129, 174, 243) 75%), url(../yakarta3/photo/экопоколение_1667х1050_сайт_1.png);
     background-size:cover;
 }
 .tre{
-    background-image: linear-gradient(to bottom, rgba(195, 219, 255, 0.021) 0%, rgb(129, 174, 243) 75%), url(../photo/Прям_Экология_Лицо_1-02_1_1.jpg);
+    background-image: linear-gradient(to bottom, rgba(195, 219, 255, 0.021) 0%, rgb(129, 174, 243) 75%), url(../yakarta3/photo/Прям_Экология_Лицо_1-02_1_1.jpg);
     background-size:cover;
 }
 .chet{
-    background-image: linear-gradient(to bottom, rgba(195, 219, 255, 0.021) 0%, rgb(129, 174, 243) 75%), url(../photo/Lzr_zOa6YK8.jpg);
+    background-image: linear-gradient(to bottom, rgba(195, 219, 255, 0.021) 0%, rgb(129, 174, 243) 75%), url(../yakarta3/photo/Lzr_zOa6YK8.jpg);
     background-size:cover;
 }
 .five{
-    background-image: linear-gradient(to bottom, rgba(195, 219, 255, 0.021) 0%, rgb(129, 174, 243) 75%), url(../photo/full_4x5uzUi4.jpg);
+    background-image: linear-gradient(to bottom, rgba(195, 219, 255, 0.021) 0%, rgb(129, 174, 243) 75%), url(../yakarta3/photo/full_4x5uzUi4.jpg);
     background-size:cover;
 }
