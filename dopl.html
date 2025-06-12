@@ -1,23 +1,369 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../yakarta3/dopl.css">
-    <title>Dobavit</title>
+    <title>Telegram Web Style - Chat</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+        body{
+            display: flex;
+            flex-direction: column;
+            align-content: stretch;
+            margin: 0;
+            background-color:#2f2f2f;
+            min-height: 100vh; /* Исправлено: min-height вместо height */
+            font-family: "Inter", sans-serif;
+        }
+        header{
+            background-color:#63bb5d;
+            display: flex;
+        }
+        footer{
+            margin: 0;
+            background-color: #2f2f2f;
+            /* height: 100%;  Удалено: фиксированная высота */
+        }
+        main{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 2vw;
+            flex: 1; /* Добавлено, чтобы main занимал все доступное пространство */
+            overflow: auto; /* Добавлено для прокрутки, если контент не помещается */
+            width: 100%; /*Добавлено для ширины*/
+        }
+        #opa{
+            margin-left: 1vw;
+        }
+        .dob{
+            margin-left: 2vw;
+            display: flex;
+            justify-content: center;
+            padding-left: 1vw;
+            padding-right: 1vw;
+        }
+        a{
+            text-decoration: none;
+        }
+        h3{
+            margin-left:1vw;
+            color: #ffffff;
+            font-family: "Inter", sans-serif;
+        }
+        #b{
+            margin-left: 1vw;
+            margin-right: 1vw;
+            color:white;
+        }
+        .silka{
+            background-color: #456b4d;
+            margin-left: 2vw;
+            display: flex;
+            justify-content: center;
+        }
+        iframe{
+            height: 75vh;
+            width: 100%;
+        }
+        h1{
+            color: #ffffff;
+            font-family: "Inter", sans-serif;
+            margin-top: 0;
+        }
+        h4{
+            color: #ffffff;
+            font-family: "Inter", sans-serif;
+            margin-top: 0.1vh;
+            margin-left: 8px;
+            margin-right: 8px;
+        }
+
+        /* Telegram Web Style */
+        .telegram-container {
+            display: flex;
+            width: 100%; /*Размер на всю ширину*/
+            max-width: 1200px;  /*Ограничение макс ширины*/
+             background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            overflow: hidden; /*Чтобы flex не переполнял*/
+            flex-direction: row; /*Добавлено, чтобы сайдбар и чат были рядом*/
+            flex: 1; /*Растягиваем telegram на всю высоту main*/
+        }
+
+        .telegram-sidebar {
+            width: 300px;
+            background-color: #f0f0f0;
+            border-right: 1px solid #ddd;
+            padding: 1rem;
+            box-sizing: border-box;
+        }
+
+        .telegram-contact-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .telegram-contact-list li {
+            padding: 0.75rem;
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+        }
+
+        .telegram-contact-list li:hover {
+            background-color: #f9f9f9;
+        }
+
+        .telegram-chat-container {
+            flex: 1; /*Занимаем всё доступное пространство*/
+            background-color: #e5e5ea;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .telegram-chat-header {
+            background-color: #fff;
+            padding: 1rem;
+            border-bottom: 1px solid #ddd;
+            font-weight: bold;
+        }
+
+        .telegram-chat-messages {
+            flex: 1;  /*Чат занимает всё доступное место*/
+            padding: 1rem;
+            overflow-y: auto;
+        }
+
+        .telegram-message {
+            background-color: #DCF8C6;
+            border-radius: 0.5rem;
+            padding: 0.5rem 1rem;
+            margin-bottom: 0.5rem;
+            align-self: flex-start;
+            max-width: 70%;
+            word-wrap: break-word;
+        }
+
+        .telegram-message.sent {
+            background-color: #fff;
+            align-self: flex-end;
+        }
+
+        .telegram-chat-input {
+            padding: 1rem;
+            background-color: #f0f0f0;
+            border-top: 1px solid #ddd;
+            display: flex;
+        }
+
+        .telegram-chat-input input {
+            flex: 1;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 0.3rem;
+            box-sizing: border-box;
+            margin-right: 0.5rem;
+        }
+
+        .telegram-chat-input button {
+            background-color: #63bb5d;
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.3rem;
+            cursor: pointer;
+        }
+
+        .telegram-chat-messages, .telegram-chat-input {
+            display: none;
+        }
+
+
+        #chat1 .telegram-chat-messages,
+        #chat1 .telegram-chat-input {
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
 </head>
 <body>
+
     <header>
         <a class="dob" href="../yakarta3/index.html"><h3>Главная</h3></a>
-        <a class="silka" href="../yakarta3/dopl.html"><h3 id="b">Добавить</h3></a>
-        <a class="dob" href="../yakarta3/akcie.html"><h3>Мероприятия</h3></a>
+        <a class="silka" href="../yakarta3/dopl.html"><h3 id="b">Сообщества</h3></a>
+        <a class="dob" href="../yakarta3/akcie.html"><h3>Новости</h3></a>
+        <a class="dob" href="../yakarta3/obuch.html"><h3>Аккаунт</h3></a>
     </header>
+
     <main>
-        <div id="icon"></div>
-        <h1>Мы улучшаемся!</h1>
-        <h3>Для того, чтобы зарегистрировать новую местность</br>
-        Напишите нам в <a id="bot" href="https://qform.link/form_l9dodvtdwamdzt0mfyvdHUo6PIffp4ag">форму</a> для дальнейшей связи.</h3>
-        <a id="trebov"><h2>Требования к публикации:</h2><h4>Название загрязнения, примерное местоположение(можно фото), минимум 2 фото доказательства.</br> Все данные отправлять одной формой.</h4></a> 
-        </main>
+         <div class="telegram-container">
+             <div class="telegram-sidebar">
+                <h3>Контакты</h3>
+                <ul class="telegram-contact-list">
+                    <li onclick="openChat('chat1')">Контакт 1</li>
+                    <li onclick="openChat('chat2')">Контакт 2</li>
+                    <li onclick="openChat('chat3')">Контакт 3</li>
+                    <li onclick="openChat('chat4')">Контакт 4</li>
+                    <li onclick="openChat('chat5')">Контакт 5</li>
+                    <li onclick="openChat('chat6')">Контакт 6</li>
+                    <li onclick="openChat('chat7')">Контакт 7</li>
+<li onclick="openChat('chat8')">Контакт 8</li>
+                    <li onclick="openChat('chat9')">Контакт 9</li>
+                    <li onclick="openChat('chat10')">Контакт 10</li>
+                </ul>
+            </div>
+
+            <div class="telegram-chat-container">
+                <div class="telegram-chat-header">
+                    Чат с Контактом <span id="chatName">1</span>
+                </div>
+
+                <div id="chat1">
+                    <div class="telegram-chat-messages">
+                        <div class="telegram-message">Привет! Как дела?</div>
+                        <div class="telegram-message sent">Привет! Всё отлично, спасибо!</div>
+                        <div class="telegram-message">Что нового?</div>
+                    </div>
+
+                    <div class="telegram-chat-input">
+                        <input type="text" placeholder="Введите сообщение...">
+                        <button>Отправить</button>
+                    </div>
+                </div>
+
+                <div id="chat2">
+                    <div class="telegram-chat-messages">
+                        <div class="telegram-message">Привет из второго чата!</div>
+                        <div class="telegram-message sent">И тебе привет!</div>
+                    </div>
+
+                    <div class="telegram-chat-input">
+                        <input type="text" placeholder="Введите сообщение...">
+                        <button>Отправить</button>
+                    </div>
+                </div>
+
+                <div id="chat3">
+                    <div class="telegram-chat-messages">
+                        <div class="telegram-message">Третий чат здесь!</div>
+                    </div>
+
+                    <div class="telegram-chat-input">
+                        <input type="text" placeholder="Введите сообщение...">
+                        <button>Отправить</button>
+                    </div>
+                </div>
+
+                <div id="chat4">
+                    <div class="telegram-chat-messages">
+                        <div class="telegram-message">Четвёртый чат здесь!</div>
+                    </div>
+
+                    <div class="telegram-chat-input">
+                        <input type="text" placeholder="Введите сообщение...">
+                        <button>Отправить</button>
+                    </div>
+                </div>
+
+                <div id="chat5">
+                    <div class="telegram-chat-messages">
+                        <div class="telegram-message">Пятый чат здесь!</div>
+                    </div>
+
+                    <div class="telegram-chat-input">
+                        <input type="text" placeholder="Введите сообщение...">
+                        <button>Отправить</button>
+                    </div>
+                </div>
+
+                <div id="chat6">
+                    <div class="telegram-chat-messages">
+                        <div class="telegram-message">Шестой чат здесь!</div>
+                    </div>
+
+                    <div class="telegram-chat-input">
+                        <input type="text" placeholder="Введите сообщение...">
+                        <button>Отправить</button>
+                    </div>
+                </div>
+
+                <div id="chat7">
+                    <div class="telegram-chat-messages">
+                        <div class="telegram-message">Седьмой чат здесь!</div>
+                    </div>
+
+                    <div class="telegram-chat-input">
+                        <input type="text" placeholder="Введите сообщение...">
+                        <button>Отправить</button>
+                    </div>
+                </div>
+
+                <div id="chat8">
+                    <div class="telegram-chat-messages">
+                        <div class="telegram-message">Восьмой чат здесь!</div>
+                    </div>
+
+                    <div class="telegram-chat-input">
+                        <input type="text" placeholder="Введите сообщение...">
+                        <button>Отправить</button>
+                    </div>
+                </div>
+
+                <div id="chat9">
+                    <div class="telegram-chat-messages">
+                        <div class="telegram-message">Девятый чат здесь!</div>
+                    </div>
+
+                    <div class="telegram-chat-input">
+                        <input type="text" placeholder="Введите сообщение...">
+                        <button>Отправить</button>
+                    </div>
+                </div>
+
+                <div id="chat10">
+                    <div class="telegram-chat-messages">
+                        <div class="telegram-message">Десятый чат здесь!</div>
+                    </div>
+
+                    <div class="telegram-chat-input">
+                        <input type="text" placeholder="Введите сообщение...">
+                        <button>Отправить</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div id="opa">
+            <h1>Связаться с нами:</h1>
+            <h3>yakarta.prototipe@yandex.ru<br/>+7xxxxxxxxxx</h3>
+        </div>
+    </footer>
+
+    <script>
+        function openChat(chatId) {
+            // Скрыть все чаты
+            const chats = document.querySelectorAll('.telegram-chat-messages, .telegram-chat-input');
+            chats.forEach(chat => {
+                chat.style.display = 'none';
+            });
+
+            // Показать выбранный чат
+            const selectedChat = document.getElementById(chatId);
+            selectedChat.querySelector('.telegram-chat-messages').style.display = 'flex';
+            selectedChat.querySelector('.telegram-chat-messages').style.flexDirection = 'column';
+            selectedChat.querySelector('.telegram-chat-input').style.display = 'flex';
+
+            // Обновить заголовок чата
+            const chatNumber = chatId.replace('chat', '');
+            document.getElementById('chatName').innerText = chatNumber;
+        }
+    </script>
+
 </body>
 </html>

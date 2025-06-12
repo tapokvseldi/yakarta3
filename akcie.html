@@ -1,50 +1,241 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../yakarta3/akcie.css">
-    <title>Document</title>
+    <title>Новости</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+        body{
+    display: flex;
+    flex-direction: column;
+    align-content: stretch;
+    margin: 0;
+    background-color:#2f2f2f;
+    font-family: "Inter", sans-serif;
+}
+header{
+    background-color:#63bb5d;
+    display: flex;
+}
+footer{
+    margin: 0;
+    background-color: #2f2f2f;
+    height: 100%;
+}
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 2vw;
+}
+#opa{
+    margin-left: 1vw;
+}
+.dob{
+    margin-left: 2vw;
+    display: flex;
+    justify-content: center;
+    padding-left: 1vw;
+    padding-right: 1vw;
+}
+a{
+    text-decoration: none;
+}
+h3{
+    margin-left:1vw;
+    color: #ffffff;
+    font-family: "Inter", sans-serif;
+}
+#b{
+    margin-left: 1vw;
+    margin-right: 1vw;
+    color:white;
+}
+.silka{
+    background-color: #456b4d;
+    margin-left: 2vw;
+    display: flex;
+    justify-content: center;
+}
+iframe{
+    height: 75vh;
+    width: 100%;
+}
+h1{
+    color: #ffffff;
+    font-family: "Inter", sans-serif;
+    margin-top: 0;
+}
+h4{
+    color: #ffffff;
+    font-family: "Inter", sans-serif;
+    margin-top: 0.1vh;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+        /* News Page Styles */
+        .news-container {
+            width: 80%;
+            max-width: 1200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Кнопки переключения разделов */
+        .news-tabs {
+            display: flex;
+            margin-bottom: 1rem;
+        }
+        .news-tab {
+            background-color: #555; /* Темно-серая кнопка */
+            color: #fff;
+            padding: 0.75rem 1rem;
+            border-radius: 5px;
+            margin-right: 0.5rem;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .news-tab:hover {
+            background-color: #777; /* Светлее при наведении */
+        }
+
+        .news-tab.active {
+            background-color: #63bb5d; /* Активный цвет */
+        }
+
+        .news-card {
+            background-color: #444; /* Темно-серый фон карточки */
+            border-radius: 15px;
+            margin-bottom: 20px;
+            padding: 20px;
+            color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            box-sizing: border-box;
+            display: none;
+        }
+
+        .news-card.events, .news-card.articles {
+            display: none;
+        }
+
+        .news-card.active {
+            display: block;
+        }
+
+        .news-card h2 {
+            color: #63bb5d; /* Акцентный цвет */
+            margin-top: 0;
+            font-size: 1.5em;
+        }
+
+        .news-card p {
+            font-size: 1.1em;
+            line-height: 1.4;
+        }
+
+        .news-card a {
+            color: #63bb5d; /* Акцентный цвет для ссылок */
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .news-card a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
     <header>
         <a class="dob" href="../yakarta3/index.html"><h3>Главная</h3></a>
-        <a class="dob" href="../yakarta3/dopl.html"><h3>Добавить</h3></a>
-        <a class="silka" href="../yakarta3/akcie.html"><h3 id="b">Мероприятия</h3></a>
+        <a class="dob" href="../yakarta3/dopl.html"><h3>Сообщества</h3></a>
+        <a class="silka" href="../yakarta3/akcie.html"><h3 id="b">Новости</h3></a>
+        <a class="dob" href="../yakarta3/obuch.html"><h3>Аккаунт</h3></a>
     </header>
+
     <main>
-        <a class="okno" href="https://podrost.fedcdo.ru/">
-            <div class="one" id="okno">
-            <h2>Конкурс школьных лесничеств имени Г.Ф. Морозова</h2>
+        <div class="news-container">
+
+            <!-- Кнопки переключения разделов -->
+            <div class="news-tabs">
+                <div class="news-tab active" data-section="events">Мероприятия</div>
+                <div class="news-tab" data-section="articles">Статьи</div>
             </div>
-        </a>
-        <a class="okno" href="https://podrost.fedcdo.ru/">
-            <div class="two" id="okno">
-            <h2>Всероссийский конкурс «Экопоколение»</h2>
+
+            <!-- Раздел Мероприятия -->
+            <div class="news-card events">
+                <h2>Заголовок Мероприятия 1</h2>
+                <p>Описание мероприятия 1.</p>
+                <a href="#">Подробнее</a>
             </div>
-        </a>
-        <a class="okno" href="https://www.будьвдвижении.рф/projects/864">
-            <div class="tre" id="okno">
-            <h2>Волонтерский трек Всероссийского проекта «На связи с природой»</h2>
+
+            <div class="news-card events">
+                <h2>Заголовок Мероприятия 2</h2>
+                <p>Описание мероприятия 2.</p>
+                <a href="#">Подробнее</a>
             </div>
-        </a>
-        <a class="okno" href="https://мастерскаяпереработки.рф/">
-            <div class="chet" id="okno">
-            <h2>Всеросийский проект "Мастерская переработки"</h2>
+
+            <!-- Раздел Статьи -->
+            <div class="news-card articles">
+                <h2>Заголовок Статьи 1</h2>
+                <p>Описание статьи 1.</p>
+                <a href="#">Подробнее</a>
             </div>
-        </a>
-        <a class="okno" href="https://садпамяти2024.рф/">
-            <div class="five" id="okno">
-            <h2>Муждународная акция "Сад памяти"</h2>
+
+            <div class="news-card articles">
+                <h2>Заголовок Статьи 2</h2>
+                <p>Описание статьи 2.</p>
+                <a href="#">Подробнее</a>
             </div>
-        </a>
+
+        </div>
     </main>
+
     <footer>
-        <div id="k">
-            <div id="aaa"></div>
-            <h1 id="svyaz">Связаться с нами:</h1>
-            <h3 id="svyaz">yakarta.prototipe@yandex.ru<br/>89800396715</h3>
-            </div>
+        <div id="opa">
+            <h1>Связаться с нами:</h1>
+            <h3>yakarta.prototipe@yandex.ru<br/>+7xxxxxxxxxx</h3>
+        </div>
     </footer>
-</body>
-</html>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabs = document.querySelectorAll('.news-tab');
+            const cards = document.querySelectorAll('.news-card');
+
+            function showSection(section) {
+                cards.forEach(card => {
+                    card.classList.remove('active');
+                });
+
+                tabs.forEach(tab => {
+                    tab.classList.remove('active');
+                });
+const sectionCards = document.querySelectorAll('.news-card.' + section);
+                sectionCards.forEach(card => {
+                    card.classList.add('active');
+                });
+
+                const activeTab = document.querySelector(`.news-tab[data-section="${section}"]`);
+                if (activeTab) {
+                    activeTab.classList.add('active');
+                }
+            }
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const section = tab.dataset.section;
+                    showSection(section);
+                });
+            });
+
+            // Показать секцию "Мероприятия" по умолчанию
+            showSection('events');
+        });
+    </script>

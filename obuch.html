@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Аккаунт</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+        body{
+            display: flex;
+            flex-direction: column;
+            align-content: stretch;
+            margin: 0;
+            background-color:#2f2f2f;
+            font-family: "Inter", sans-serif;
+            color: #fff;
+            min-height: 100vh;
+        }
+
+        header{
+            background-color:#63bb5d;
+            display: flex;
+        }
+
+        footer{
+            margin: 0;
+            background-color: #2f2f2f;
+            height: 100%;
+        }
+
+        main{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 2vw;
+            flex: 1;
+            width: 100%;
+        }
+
+        #opa{
+            margin-left: 1vw;
+        }
+
+        .dob{
+            margin-left: 2vw;
+            display: flex;
+            justify-content: center;
+            padding-left: 1vw;
+            padding-right: 1vw;
+        }
+
+        a{
+            text-decoration: none;
+            color: #fff;
+        }
+
+        h3{
+            margin-left:1vw;
+            color: #ffffff;
+            font-family: "Inter", sans-serif;
+        }
+
+        #b{
+            margin-left: 1vw;
+            margin-right: 1vw;
+            color:white;
+        }
+
+        .silka{
+            background-color: #456b4d;
+            margin-left: 2vw;
+            display: flex;
+            justify-content: center;
+        }
+
+        iframe{
+            height: 75vh;
+            width: 100%;
+        }
+
+        h1{
+            color: #ffffff;
+            font-family: "Inter", sans-serif;
+            margin-top: 0;
+        }
+
+        h4{
+            color: #ffffff;
+            font-family: "Inter", sans-serif;
+            margin-top: 0.1vh;
+            margin-left: 8px;
+            margin-right: 8px;
+        }
+
+        /* Account Page Styles */
+        .account-container {
+            width: 80%;
+            max-width: 800px;
+            background-color: #333;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            box-sizing: border-box;
+        }
+
+        .account-info {
+            margin-bottom: 20px;
+        }
+        .account-info h2 {
+            color: #63bb5d;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .account-info p {
+            margin-bottom: 5px;
+        }
+
+        .account-section {
+            margin-bottom: 20px;
+        }
+
+        .account-section h3 {
+            color: #63bb5d;
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .account-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .account-section li {
+            margin-bottom: 5px;
+        }
+
+        .recommendations {
+            margin-top: 20px;
+        }
+
+        .recommendations h3 {
+            color: #63bb5d;
+            margin-bottom: 10px;
+        }
+
+        .recommendations ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .recommendations li {
+            margin-bottom: 5px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <a class="dob" href="../yakarta3/index.html"><h3 style="font-family: Inter, sans-serif;">Главная</h3></a>
+        <a class="dob" href="../yakarta3/dopl.html"><h3 style="font-family: Inter, sans-serif;">Сообщества</h3></a>
+        <a class="dob" href="../yakarta3/akcie.html"><h3 style="font-family: Inter, sans-serif;">Новости</h3></a>
+        <a class="silka" href="../yakarta3/obuch.html"><h3 id="b" style="font-family: Inter, sans-serif;">Аккаунт</h3></a>
+    </header>
+
+    <main>
+        <div class="account-container">
+            <div class="account-info">
+                <h2>Личная информация</h2>
+                <p><strong>ФИО:</strong> Иванов Иван Иванович</p>
+                <p><strong>Дата рождения:</strong> 15.05.1990</p>
+            </div>
+
+            <div class="account-section">
+                <h3>Профессии в приоритете</h3>
+                <ul>
+                    <li>Разработчик</li>
+                    <li>Дизайнер</li>
+                </ul>
+            </div>
+
+            <div class="account-section">
+                <h3>Навыки</h3>
+                <ul>
+                    <li>HTML/CSS</li>
+                    <li>JavaScript</li>
+                    <li>Python</li>
+                </ul>
+            </div>
+
+            <div class="recommendations">
+                <h3>Рекомендации</h3>
+                <div class = "account-section">
+                <h3 style = "text-align: center">ВУЗы</h3>
+                <ul>
+                    <li>МГУ</li>
+                    <li>СПбГУ</li>
+                </ul>
+                </div>
+                 <div class = "account-section">
+                 <h3 style = "text-align: center">Места работы</h3>
+                <ul>
+                    <li>Google</li>
+                    <li>Yandex</li>
+                </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div id="opa">
+            <h1>Связаться с нами:</h1>
+            <h3>yakarta.prototipe@yandex.ru<br/>+7xxxxxxxxxx</h3>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -9,39 +9,82 @@
 <body>
     <header>
         <a class="silka" href="../yakarta3index.html"><h3 id="b">Главная</h3></a>
-        <a class="dob" href="../yakarta3/dopl.html"><h3>Добавить</h3></a>
-        <a class="dob" href="../yakarta3/akcie.html"><h3>Мероприятия</h3></a>
+        <a class="dob" href="../yakarta3/dopl.html"><h3>Сообщества</h3></a>
+        <a class="dob" href="../yakarta3/akcie.html"><h3>Новости</h3></a>
+        <a class="dob" href="../yakarta3/obuch.html"><h3>Аккаунт</h3></a>
     </header>
-    <main><iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Aca80ab73dcf4160afd005e0acad05b15379119c4f5558480e0c652893bf1aeca&amp;source=constructor" width="500" height="401" frameborder="0"></iframe></main>
+    <main>
+        <div class="gallery-container-wrapper">
+        <div class="gallery-wrapper">
+            <button class="nav-button" onclick="scrollGallery(-1)">&#8249;</button>
+        <div class="gallery-container">
+                <div class="gallery-scroll" id="galleryScroll">
+                    <a class="gallery-item" id="one"></a>
+                    <div class="gallery-item" id="two"></div>
+                    <div class="gallery-item">3</div>
+                    <div class="gallery-item">4</div>
+                    <div class="gallery-item">5</div>
+                    <div class="gallery-item">6</div>
+                    <div class="gallery-item">7</div>
+                    <div class="gallery-item">8</div>
+                    <div class="gallery-item">9</div>
+                </div>
+            </div>
+
+            <button class="nav-button" onclick="scrollGallery(1)">&#8250;</button>
+        </div>
+    </div>
+
+    <script>
+        const galleryScroll = document.getElementById('galleryScroll');
+        let items = galleryScroll.querySelectorAll('.gallery-item');
+        let currentIndex = 0;
+
+        function setActive() {
+            items.forEach((item, index) => {
+                if (index === currentIndex) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+        }
+
+        function scrollGallery(direction) {
+            currentIndex += direction;
+            if (currentIndex < 0) {
+                currentIndex = 0;
+            } else if (currentIndex >= items.length) {
+                currentIndex = items.length - 1;
+            }
+
+            setActive(); // Устанавливаем класс active
+            const itemWidth = items[0].offsetWidth + 20;  // Ширина с отступами
+            galleryScroll.scrollLeft = itemWidth * currentIndex - (galleryScroll.offsetWidth - itemWidth) / 2; // Центрирование
+            // galleryScroll.scrollLeft += direction * itemWidth;
+        }
+
+        // Инициализация при загрузке
+        window.onload = () => {
+            setActive();
+             const itemWidth = items[0].offsetWidth + 20;
+            galleryScroll.scrollLeft = itemWidth * currentIndex - (galleryScroll.offsetWidth - itemWidth) / 2;
+        };
+    </script>
+    <div class="zd">
+        <div class="text">
+            <h1>Рассказать о своих навыках</h1>
+            <h3>Узнайте будущую работу по своим умениям!</h3>
+            <button class="nav-button" id="i">&#8250;</button>
+        </div>
+        <div class="naviki"></div>
+    </div>
+    </main>
     <footer>
-        <div id ="opa">
-        <h1>Обозначения</h1>
-        <div id="cont">
-        <div id="k">
-        <div class="oboz">
-            <div id="one"></div>
-            <div id="two"></div>
-            <div id="tre"></div>
-            <div id="chet"></div>
-        </div>
-        <h4>степень загрязнения суши</h4>
-        </div>
-        <div id="k">
-        <div class="oboz">
-            <div id="onee"></div>
-            <div id="twoe"></div>
-            <div id="tree"></div>
-            <div id="chete"></div>
-        </div>
-        <h4>степень загрязнения воды</h4>
-        </div>
-        <div id="k">
-        <div id="aaa"></div>
-        <h4>полигоны</h4>
-        </div>
-        </div>
+        <div id="opa">
         <h1>Связаться с нами:</h1>
-        <h3>yakarta.prototipe@yandex.ru<br/>89800396715</h3>
+        <h3>yakarta.prototipe@yandex.ru<br/>+7xxxxxxxxxx</h3>
+        </div>
         </div>
     </footer>
 </body>
